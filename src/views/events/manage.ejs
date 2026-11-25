@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<p><a href="/organizer">← Meus eventos</a></p>
+<h1 data-event-name><%= event.name %></h1>
+<p>Status: <strong data-event-status="<%= event.status %>"><%= statusText %></strong></p>
+<p><%= formatDateTime(event.startsAt) %> · <%= event.venue %> · Lotação <%= event.capacity %> · <%= formatMoney(event.priceCents) %></p>
+<%- include('../partials/errors') %>
+<% if (notice) { %><p class="notice"><%= notice %></p><% } %>
+
+<% if (event.status === 'draft') { %>
+  <form method="post" action="/organizer/events/<%= event.id %>/publish"><button type="submit">Publicar</button></form>
+<% } %>
+
+<% slots.forEach(function (s) { %>
+  <%- include('../' + s.view, s.locals) %>
+<% }) %>
+
+<% if (event.status !== 'cancelled') { %>
+<section>
+  <h2>Editar evento</h2>
+  <form id="edit-form" method="post" action="/organizer/events/<%= event.id %>">
+    <%- include('_form') %>
+    <button type="submit">Salvar</button>
+  </form>
+</section>
+<% } %>
+<%- include('../partials/footer') %>

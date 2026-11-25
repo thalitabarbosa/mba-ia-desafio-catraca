@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h1>Novo evento</h1>
+<%- include('../partials/errors') %>
+<form method="post" action="/organizer/events">
+  <%- include('_form') %>
+  <button type="submit">Criar rascunho</button>
+</form>
+<%- include('../partials/footer') %>

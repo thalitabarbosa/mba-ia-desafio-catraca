@@ -8,7 +8,7 @@
     "changes_requested": "último relatório reprovou itens",
     "done": "último relatório aprovou todos os itens do contrato"
   },
-  "currentWave": "W1",
+  "currentWave": "W2",
   "features": {
     "F01": {
       "name": "Plataforma, contas e harness",
@@ -21,10 +21,10 @@
     "F02": {
       "name": "Eventos do organizador",
       "wave": "W2",
-      "status": "pending",
+      "status": "done",
       "branch": "feat/F02-events",
-      "pr": null,
-      "latestReport": null
+      "pr": "https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/2",
+      "latestReport": "docs/features/F02-events/reports/2026-11-25-1250-eval.md"
     },
     "F03": {
       "name": "Compra e gateway simulado",
@@ -77,6 +77,18 @@
     {
       "at": "2026-11-25 12:47",
       "feature": "F01",
+      "status": "done",
+      "note": "avaliação: Veredito final: APROVADO"
+    },
+    {
+      "at": "2026-11-25 12:49",
+      "feature": "F02",
+      "status": "in_review",
+      "note": "implementação concluída; gates ok"
+    },
+    {
+      "at": "2026-11-25 12:52",
+      "feature": "F02",
       "status": "done",
       "note": "avaliação: Veredito final: APROVADO"
     }

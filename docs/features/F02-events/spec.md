@@ -18,6 +18,9 @@ listOnSaleEvents()                   // status = 'published', ordenado por start
 isOnSale(event)                      // event?.status === 'published'
 ```
 
+`src/format.js`: `formatDateTime`, `formatMoney` (`R$ 350,00`), `toIsoOffset` (`2026-12-05T21:00:00-03:00`),
+`toLocalInput`, `centsToInput` — F04, F05 e F06 usam estes em vez de criar os seus.
+
 `src/events/manage-page.js`: registro de **slots** da página de gestão:
 `registerManageSlot({ name, order, load: async (event, req) => locals, view: 'checkin/slot' })`.
 A rota GET `/organizer/events/:id` chama todos os slots e renderiza cada partial. F06 registra
