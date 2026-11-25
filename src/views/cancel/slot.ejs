@@ -1,0 +1,11 @@
+<section id="cancel">
+<% if (event.status === 'published') { %>
+  <h2>Cancelar evento</h2>
+  <p>O cancelamento é irreversível: o evento sai da vitrine e da API, ingressos confirmados são estornados e pendentes são cancelados.</p>
+  <form method="post" action="/organizer/events/<%= event.id %>/cancel">
+    <button type="submit">Cancelar evento</button>
+  </form>
+<% } else if (event.status === 'cancelled') { %>
+  <p class="notice" data-event-cancelled>Evento cancelado em <%= cancelledAtText %>. Ele não pode mais ser editado nem republicado.</p>
+<% } %>
+</section>

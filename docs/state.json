@@ -61,7 +61,7 @@
     "F07": {
       "name": "Cancelamento de evento",
       "wave": "W5",
-      "status": "pending",
+      "status": "in_review",
       "branch": "feat/F07-cancel",
       "pr": null,
       "latestReport": null
@@ -157,6 +157,12 @@
       "feature": "F06",
       "status": "in_review",
       "note": "implementação concluída; gates ok (32 testes)"
+    },
+    {
+      "at": "2026-11-25 13:18",
+      "feature": "F07",
+      "status": "in_review",
+      "note": "implementação concluída; gates ok; npm run flow 85 PASS"
     }
   ]
 }
