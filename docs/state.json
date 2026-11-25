@@ -37,10 +37,10 @@
     "F04": {
       "name": "Vitrine e Meus ingressos",
       "wave": "W4",
-      "status": "in_review",
+      "status": "done",
       "branch": "feat/F04-storefront",
-      "pr": null,
-      "latestReport": null
+      "pr": "https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/4",
+      "latestReport": "docs/features/F04-storefront/reports/2026-11-25-1306-eval.md"
     },
     "F05": {
       "name": "API de parceiros",
@@ -127,6 +127,12 @@
       "feature": "F04",
       "status": "in_review",
       "note": "implementação concluída; gates ok"
+    },
+    {
+      "at": "2026-11-25 13:07",
+      "feature": "F04",
+      "status": "done",
+      "note": "avaliação: Veredito final: APROVADO"
     }
   ]
 }
