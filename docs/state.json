@@ -21,10 +21,10 @@
     "F02": {
       "name": "Eventos do organizador",
       "wave": "W2",
-      "status": "in_review",
+      "status": "done",
       "branch": "feat/F02-events",
-      "pr": null,
-      "latestReport": null
+      "pr": "https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/2",
+      "latestReport": "docs/features/F02-events/reports/2026-11-25-1250-eval.md"
     },
     "F03": {
       "name": "Compra e gateway simulado",
@@ -85,6 +85,12 @@
       "feature": "F02",
       "status": "in_review",
       "note": "implementação concluída; gates ok"
+    },
+    {
+      "at": "2026-11-25 12:52",
+      "feature": "F02",
+      "status": "done",
+      "note": "avaliação: Veredito final: APROVADO"
     }
   ]
 }
