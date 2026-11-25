@@ -53,10 +53,10 @@
     "F06": {
       "name": "Check-in e painel",
       "wave": "W4",
-      "status": "in_review",
+      "status": "done",
       "branch": "feat/F06-checkin-panel",
-      "pr": null,
-      "latestReport": null
+      "pr": "https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/6",
+      "latestReport": "docs/features/F06-checkin-panel/reports/2026-11-25-1311-eval.md"
     },
     "F07": {
       "name": "Cancelamento de evento",
@@ -127,6 +127,12 @@
       "feature": "F06",
       "status": "in_review",
       "note": "implementação concluída; gates ok (32 testes)"
+    },
+    {
+      "at": "2026-11-25 13:11",
+      "feature": "F06",
+      "status": "done",
+      "note": "avaliação: Veredito final: APROVADO"
     }
   ]
 }
