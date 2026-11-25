@@ -37,7 +37,7 @@
     "F04": {
       "name": "Vitrine e Meus ingressos",
       "wave": "W4",
-      "status": "in_progress",
+      "status": "in_review",
       "branch": "feat/F04-storefront",
       "pr": null,
       "latestReport": null
@@ -121,6 +121,12 @@
       "feature": "F06",
       "status": "in_progress",
       "note": "W4 iniciada em paralelo"
+    },
+    {
+      "at": "2026-11-25 13:03",
+      "feature": "F04",
+      "status": "in_review",
+      "note": "implementação concluída; gates ok"
     }
   ]
 }
