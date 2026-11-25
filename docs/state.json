@@ -8,7 +8,7 @@
     "changes_requested": "último relatório reprovou itens",
     "done": "último relatório aprovou todos os itens do contrato"
   },
-  "currentWave": "W5",
+  "currentWave": "concluído",
   "features": {
     "F01": {
       "name": "Plataforma, contas e harness",

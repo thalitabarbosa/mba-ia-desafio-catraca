@@ -15,6 +15,9 @@ Pré-requisitos: Linux ou macOS (Windows via WSL), Docker, Git e Node.js LTS. Ne
 | Fluxo do avaliador automatizado (produto no ar) | `npm run flow` · com harness: `npm run flow -- --harness` |
 | Apagar também os dados | `npm run reset` |
 
+Atrás de proxy corporativo com CA próprio, o build aceita o secret opcional `npm_ca` (ver `Dockerfile`) e os
+gates aceitam um compose extra em `GATES_EXTRA_COMPOSE`; nada disso é necessário numa máquina comum.
+
 O modo padrão usa o **gateway simulado** (respostas conforme o final do cartão). `GATEWAY_DELAY_SCALE`
 só existe para acelerar testes locais; o padrão é `1`, que segue a tabela do brief.
 
@@ -55,9 +58,21 @@ só existe para acelerar testes locais; o padrão é `1`, que segue a tabela do 
 
 **PRs da wave paralela (W4):**
 
-- F04 Vitrine e Meus ingressos — _link do PR_
-- F05 API de parceiros — _link do PR_
-- F06 Check-in e painel — _link do PR_
+- F04 Vitrine e Meus ingressos — https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/4
+- F05 API de parceiros — https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/5
+- F06 Check-in e painel — https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/6
+
+As três branches foram criadas da `main` (com F01–F03 prontas) em worktrees separados e implementadas por
+três agentes ao mesmo tempo; o primeiro commit de cada PR (`chore(Fxx): start`) é anterior ao último commit
+dos outros. Conflitos de merge esperados (e resolvidos) em `src/routes.js` e `docs/state.json`.
+
+Todos os PRs: [#1 F01](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/1) ·
+[#2 F02](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/2) ·
+[#3 F03](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/3) ·
+[#4 F04](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/4) ·
+[#5 F05](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/5) ·
+[#6 F06](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/6) ·
+[#7 F07](https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/7)
 
 ## Decisões
 
@@ -72,6 +87,10 @@ só existe para acelerar testes locais; o padrão é `1`, que segue a tabela do 
   no ingresso, respondendo na hora (202/`pending`). Um worker no processo do app aplica, a cada 250 ms,
   as respostas vencidas com `UPDATE ... WHERE status = 'pending'`. Essa guarda faz respostas tardias
   serem ignoradas depois do cancelamento (R11), e o vencimento no banco sobrevive a reinícios.
+- **Integração entre features:** regras com dono único (vagas e compra em `src/tickets/service.js`,
+  "à venda" em `isOnSale`, dono do evento em `getOwnedEvent`) e a página de gestão montada por *slots*
+  (painel/check-in da F06 e cancelamento da F07 se registram sem editar a view da F02). Cada critério
+  cross-feature do PRD tem item verificável em contrato, e `npm run flow` executa o fluxo do avaliador inteiro.
 - **Avaliação isolada:** cada feature é avaliada pelo subagente `evaluator` (contexto vazio, só lê o
   contrato), num clone limpo do commit avaliado, e gera um relatório novo em `reports/`. O gate de
   artefatos reprova qualquer relatório alterado depois de commitado e confere o estado contra os relatórios.
