@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+<h1>Criar conta</h1>
+<%- include('../partials/errors') %>
+<form method="post" action="/signup">
+  <label>Nome <input name="name" value="<%= values.name || '' %>" required></label>
+  <label>E-mail <input name="email" type="email" value="<%= values.email || '' %>" required></label>
+  <label>Senha <input name="password" type="password" minlength="8" required></label>
+  <button type="submit">Criar conta</button>
+</form>
+<p>Já tem conta? <a href="/login">Entre</a>.</p>
+<%- include('../partials/footer') %>

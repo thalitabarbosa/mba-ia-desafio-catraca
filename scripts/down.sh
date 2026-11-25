@@ -9,5 +9,6 @@ else
   docker compose down --remove-orphans
 fi
 # Garante que nenhum resto dos gates ficou rodando.
-docker compose -f docker-compose.test.yml down --remove-orphans --volumes >/dev/null 2>&1 || true
+PROJECT="catraca-gates-$(basename "$PWD" | tr '[:upper:]' '[:lower:]' | tr -cd 'a-z0-9-')"
+docker compose -p "$PROJECT" -f docker-compose.test.yml down --remove-orphans --volumes >/dev/null 2>&1 || true
 echo "Catraca derrubada."
