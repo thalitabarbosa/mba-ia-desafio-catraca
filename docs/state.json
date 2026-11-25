@@ -8,7 +8,7 @@
     "changes_requested": "último relatório reprovou itens",
     "done": "último relatório aprovou todos os itens do contrato"
   },
-  "currentWave": "W2",
+  "currentWave": "W3",
   "features": {
     "F01": {
       "name": "Plataforma, contas e harness",
@@ -29,7 +29,7 @@
     "F03": {
       "name": "Compra e gateway simulado",
       "wave": "W3",
-      "status": "pending",
+      "status": "in_review",
       "branch": "feat/F03-purchase",
       "pr": null,
       "latestReport": null
@@ -91,6 +91,12 @@
       "feature": "F02",
       "status": "done",
       "note": "avaliação: Veredito final: APROVADO"
+    },
+    {
+      "at": "2026-11-25 12:55",
+      "feature": "F03",
+      "status": "in_review",
+      "note": "implementação concluída; gates ok; burst 5x ok"
     }
   ]
 }

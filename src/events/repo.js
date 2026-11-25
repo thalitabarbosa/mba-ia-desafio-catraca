@@ -3,6 +3,7 @@ import { query, tx } from '../db.js';
 import { newId } from '../ids.js';
 import { validateEventInput } from './validate.js';
 import { ValidationError, NotFoundError, ConflictError } from './errors.js';
+import { occupiedSeats } from '../tickets/seats.js';
 
 export { ValidationError, NotFoundError, ConflictError };
 
@@ -28,20 +29,6 @@ export function toEvent(r) {
 /** R02: só publicado (e, portanto, não cancelado) está à venda. */
 export const isOnSale = (event) => event?.status === 'published';
 
-/**
- * Vagas ocupadas (R05) — pendentes + confirmados. Use dentro de uma transação que já travou o evento.
- * Até a F03 existir não há tabela de ingressos, então a contagem é 0.
- */
-export async function countOccupied(client, eventId) {
-  const t = await client.query(`SELECT to_regclass('public.tickets') AS t`);
-  if (!t.rows[0].t) return 0;
-  const { rows } = await client.query(
-    `SELECT count(*) AS n FROM tickets WHERE event_id = $1 AND status IN ('pending', 'confirmed')`,
-    [eventId],
-  );
-  return rows[0].n;
-}
-
 export async function createEvent(orgId, body) {
   const { errors, values } = validateEventInput(body);
   if (errors.length) throw new ValidationError(errors);
@@ -63,7 +50,7 @@ export async function updateEvent(orgId, eventId, body) {
 
     const { errors, values } = validateEventInput(body);
     if (errors.length) throw new ValidationError(errors);
-    const occupied = await countOccupied(client, eventId);
+    const occupied = await occupiedSeats(client, eventId);
     if (values.capacity < occupied) {
       throw new ValidationError([`A lotação não pode ser menor que as vagas ocupadas (${occupied}).`]);
     }
