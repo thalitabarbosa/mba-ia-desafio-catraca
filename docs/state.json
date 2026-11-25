@@ -13,10 +13,10 @@
     "F01": {
       "name": "Plataforma, contas e harness",
       "wave": "W1",
-      "status": "in_review",
+      "status": "done",
       "branch": "feat/F01-platform",
-      "pr": null,
-      "latestReport": null
+      "pr": "https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/1",
+      "latestReport": "docs/features/F01-platform/reports/2026-11-25-1246-eval.md"
     },
     "F02": {
       "name": "Eventos do organizador",
@@ -73,6 +73,12 @@
       "feature": "F01",
       "status": "in_review",
       "note": "implementação concluída; gates ok"
+    },
+    {
+      "at": "2026-11-25 12:47",
+      "feature": "F01",
+      "status": "done",
+      "note": "avaliação: Veredito final: APROVADO"
     }
   ]
 }
