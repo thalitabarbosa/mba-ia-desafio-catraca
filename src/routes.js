@@ -2,9 +2,11 @@
 import { authRouter } from './auth/routes.js';
 import { placeholderRouter } from './placeholder-routes.js';
 import { eventsRouter } from './events/routes.js';
+import { checkinRouter } from './checkin/routes.js';
 
 export function registerRoutes(app) {
   app.use(authRouter);
   app.use(eventsRouter);
+  app.use(checkinRouter);
   app.use(placeholderRouter);
 }
