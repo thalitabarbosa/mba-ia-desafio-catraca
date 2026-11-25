@@ -15,8 +15,16 @@
     "flow": "bash scripts/evaluator-flow.sh",
     "check:artifacts": "node scripts/check-artifacts.mjs",
     "start": "node src/main.js",
-    "test": "node --test --test-concurrency=1 test/"
+    "test": "node --test --test-concurrency=1 \"test/**/*.test.js\""
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.2"
+  }
 }

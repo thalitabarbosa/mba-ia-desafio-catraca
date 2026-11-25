@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= typeof title !== 'undefined' ? title + ' · ' : '' %>Catraca</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 860px; margin: 0 auto; padding: 0 16px 48px; color: #1b1b1b; }
+    header { display: flex; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #ddd; margin-bottom: 24px; }
+    header .brand { font-weight: 700; text-decoration: none; color: inherit; margin-right: auto; }
+    header form { margin: 0; }
+    .error { color: #b00020; }
+    .notice { background: #f3f3f3; padding: 8px 12px; border-radius: 6px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee; }
+    label { display: block; margin: 8px 0; }
+    input { padding: 4px 6px; }
+    section { margin: 24px 0; }
+    dl#panel { display: grid; grid-template-columns: max-content max-content; gap: 4px 16px; }
+    dl#panel dd { margin: 0; font-weight: 600; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/">Catraca</a>
+  <a href="/">Vitrine</a>
+  <% if (user) { %>
+    <% if (user.role === 'organizer') { %><a href="/organizer">Meus eventos</a><% } else { %><a href="/my-tickets">Meus ingressos</a><% } %>
+    <span><%= user.name %></span>
+    <form method="post" action="/logout"><button type="submit">Sair</button></form>
+  <% } else { %>
+    <a href="/login">Entrar</a>
+    <a href="/signup">Criar conta</a>
+  <% } %>
+</header>
+<main>
