@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<h1>Meus ingressos</h1>
+<% if (!tickets.length) { %>
+  <p>Você ainda não tem ingressos</p>
+<% } else { %>
+  <p>Recarregue a página para atualizar o status.</p>
+  <table>
+    <thead><tr><th>Evento</th><th>Data</th><th>Status</th><th>Código</th></tr></thead>
+    <tbody>
+    <% tickets.forEach(function (t) { %>
+      <tr data-ticket-code="<%= t.code %>" data-status="<%= t.status %>">
+        <td><%= t.eventName %></td>
+        <td><%= formatDateTime(t.eventStartsAt) %></td>
+        <td><%= STATUS_LABEL[t.status] || t.status %></td>
+        <td><code><%= t.code %></code></td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+<% } %>
+<%- include('../partials/footer') %>
