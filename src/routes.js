@@ -4,6 +4,7 @@ import { eventsRouter } from './events/routes.js';
 import { partnerRouter } from './partner/routes.js';
 import { storefrontRouter } from './storefront/routes.js';
 import { checkinRouter } from './checkin/routes.js';
+import { cancelRouter } from './cancel/routes.js';
 
 export function registerRoutes(app) {
   app.use(authRouter);
@@ -11,4 +12,5 @@ export function registerRoutes(app) {
   app.use(partnerRouter);
   app.use(storefrontRouter);
   app.use(checkinRouter);
+  app.use(cancelRouter);
 }

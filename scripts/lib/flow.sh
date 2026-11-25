@@ -57,7 +57,7 @@ metric_from() { sed -n "s/.*data-metric=\"$1\"[^>]*>[[:space:]]*\([^<]*\)<.*/\1/
 # ---------- verificações ----------
 
 ok()   { PASS_COUNT=$((PASS_COUNT + 1)); printf '  \033[32mPASS\033[0m %s\n' "$1"; }
-bad()  { FAIL_COUNT=$((FAIL_COUNT + 1)); printf '  \033[31mFAIL\033[0m %s\n' "$1"; [ -n "$2" ] && printf '       %s\n' "$2"; }
+bad()  { FAIL_COUNT=$((FAIL_COUNT + 1)); printf '  \033[31mFAIL\033[0m %s\n' "$1"; [ -n "${2:-}" ] && printf '       %s\n' "$2"; }
 
 expect_eq() { # expect_eq DESCRIÇÃO OBTIDO ESPERADO
   if [ "$2" = "$3" ]; then ok "$1 ($2)"; else bad "$1" "esperado: [$3]  obtido: [$2]"; fi
