@@ -1,0 +1,8 @@
+<section>
+  <h2>Check-in</h2>
+  <% if (checkinResult) { %><p id="checkin-result"><%= checkinResult %></p><% } %>
+  <form id="checkin-form" method="post" action="/organizer/events/<%= event.id %>/checkin">
+    <label>Código do ingresso <input name="code" autocomplete="off" required></label>
+    <button type="submit">Validar entrada</button>
+  </form>
+</section>
