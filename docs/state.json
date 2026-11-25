@@ -45,7 +45,7 @@
     "F05": {
       "name": "API de parceiros",
       "wave": "W4",
-      "status": "in_progress",
+      "status": "in_review",
       "branch": "feat/F05-partner-api",
       "pr": null,
       "latestReport": null
@@ -121,6 +121,12 @@
       "feature": "F06",
       "status": "in_progress",
       "note": "W4 iniciada em paralelo"
+    },
+    {
+      "at": "2026-11-25 13:03",
+      "feature": "F05",
+      "status": "in_review",
+      "note": "implementação concluída; gates ok (inclui rajada 30x lotação 5 em 2 rodadas)"
     }
   ]
 }
