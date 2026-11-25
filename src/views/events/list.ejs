@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<h1>Meus eventos</h1>
+<p><a href="/organizer/events/new">Novo evento</a></p>
+<% if (!events.length) { %>
+  <p>Você ainda não tem eventos.</p>
+<% } else { %>
+  <ul>
+  <% events.forEach(function (e) { %>
+    <li data-event-id="<%= e.id %>"><a href="/organizer/events/<%= e.id %>"><%= e.name %></a> — <%= formatDateTime(e.startsAt) %> — <%= e.venue %> — <%= formatMoney(e.priceCents) %> — <%= STATUS_TEXT[e.status] %></li>
+  <% }) %>
+  </ul>
+<% } %>
+<%- include('../partials/footer') %>

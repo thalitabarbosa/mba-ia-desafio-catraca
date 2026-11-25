@@ -8,7 +8,7 @@
     "changes_requested": "último relatório reprovou itens",
     "done": "último relatório aprovou todos os itens do contrato"
   },
-  "currentWave": "W1",
+  "currentWave": "W2",
   "features": {
     "F01": {
       "name": "Plataforma, contas e harness",
@@ -21,7 +21,7 @@
     "F02": {
       "name": "Eventos do organizador",
       "wave": "W2",
-      "status": "pending",
+      "status": "in_review",
       "branch": "feat/F02-events",
       "pr": null,
       "latestReport": null
@@ -79,6 +79,12 @@
       "feature": "F01",
       "status": "done",
       "note": "avaliação: Veredito final: APROVADO"
+    },
+    {
+      "at": "2026-11-25 12:49",
+      "feature": "F02",
+      "status": "in_review",
+      "note": "implementação concluída; gates ok"
     }
   ]
 }

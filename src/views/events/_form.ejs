@@ -1,0 +1,5 @@
+<label>Nome <input name="name" value="<%= form.name %>" required maxlength="120"></label>
+<label>Data e hora de início <input name="startsAt" type="datetime-local" value="<%= form.startsAt %>" required></label>
+<label>Local <input name="venue" value="<%= form.venue %>" required maxlength="120"></label>
+<label>Lotação <input name="capacity" type="number" min="1" step="1" value="<%= form.capacity %>" required></label>
+<label>Preço (R$) <input name="price" inputmode="decimal" placeholder="100,00" value="<%= form.price %>" required></label>
