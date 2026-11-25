@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<h1>Eventos à venda</h1>
+<% if (!items.length) { %>
+  <p>Nenhum evento à venda</p>
+<% } else { %>
+  <ul class="events">
+  <% items.forEach(function ({ event, available }) { %>
+    <li data-event-id="<%= event.id %>">
+      <a href="/events/<%= event.id %>"><strong><%= event.name %></strong></a><br>
+      <span><%= formatDateTime(event.startsAt) %></span> · <span><%= event.venue %></span> ·
+      <span><%= formatMoney(event.priceCents) %></span> ·
+      <% if (available === 0) { %><span>Ingressos esgotados</span><% } else { %><span><%= available %> vagas disponíveis</span><% } %>
+    </li>
+  <% }) %>
+  </ul>
+<% } %>
+<%- include('../partials/footer') %>

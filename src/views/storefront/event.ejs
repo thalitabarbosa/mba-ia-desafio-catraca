@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<h1><%= event.name %></h1>
+<dl>
+  <dt>Data</dt><dd><%= formatDateTime(event.startsAt) %></dd>
+  <dt>Local</dt><dd><%= event.venue %></dd>
+  <dt>Preço</dt><dd><%= formatMoney(event.priceCents) %></dd>
+  <dt>Vagas disponíveis</dt><dd><%= available %></dd>
+</dl>
+<section id="purchase">
+<% if (soldOut) { %>
+  <p class="notice">Ingressos esgotados</p>
+<% } else if (user && user.role === 'participant') { %>
+  <%- include('../partials/errors') %>
+  <form method="post" action="/events/<%= event.id %>/purchase">
+    <label>Número do cartão <input name="cardNumber" inputmode="numeric" maxlength="16" pattern="[0-9]{16}" required></label>
+    <button type="submit">Comprar ingresso</button>
+  </form>
+<% } else if (user) { %>
+  <p>Só participantes podem comprar ingressos.</p>
+<% } else { %>
+  <p><a href="/login?next=<%= encodeURIComponent('/events/' + event.id) %>">Entre para comprar</a></p>
+<% } %>
+</section>
+<%- include('../partials/footer') %>
