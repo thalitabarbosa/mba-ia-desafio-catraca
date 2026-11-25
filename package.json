@@ -1,0 +1,22 @@
+{
+  "name": "catraca",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Catraca — venda de ingressos para eventos pequenos (MVP construído em modo agente)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "up": "sh scripts/up.sh",
+    "down": "sh scripts/down.sh",
+    "reset": "sh scripts/down.sh --volumes",
+    "gates": "sh scripts/gates.sh",
+    "flow": "bash scripts/evaluator-flow.sh",
+    "check:artifacts": "node scripts/check-artifacts.mjs",
+    "start": "node src/main.js",
+    "test": "node --test --test-concurrency=1 test/"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

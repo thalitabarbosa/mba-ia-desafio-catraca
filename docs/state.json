@@ -1,0 +1,22 @@
+{
+  "project": "catraca",
+  "updatedAt": "2026-11-25",
+  "statusLegend": {
+    "pending": "não começou",
+    "in_progress": "implementando",
+    "in_review": "aguardando avaliação",
+    "changes_requested": "último relatório reprovou itens",
+    "done": "último relatório aprovou todos os itens do contrato"
+  },
+  "currentWave": "W1",
+  "features": {
+    "F01": { "name": "Plataforma, contas e harness", "wave": "W1", "status": "pending", "branch": "feat/F01-platform", "pr": null, "latestReport": null },
+    "F02": { "name": "Eventos do organizador", "wave": "W2", "status": "pending", "branch": "feat/F02-events", "pr": null, "latestReport": null },
+    "F03": { "name": "Compra e gateway simulado", "wave": "W3", "status": "pending", "branch": "feat/F03-purchase", "pr": null, "latestReport": null },
+    "F04": { "name": "Vitrine e Meus ingressos", "wave": "W4", "status": "pending", "branch": "feat/F04-storefront", "pr": null, "latestReport": null },
+    "F05": { "name": "API de parceiros", "wave": "W4", "status": "pending", "branch": "feat/F05-partner-api", "pr": null, "latestReport": null },
+    "F06": { "name": "Check-in e painel", "wave": "W4", "status": "pending", "branch": "feat/F06-checkin-panel", "pr": null, "latestReport": null },
+    "F07": { "name": "Cancelamento de evento", "wave": "W5", "status": "pending", "branch": "feat/F07-cancel", "pr": null, "latestReport": null }
+  },
+  "log": []
+}

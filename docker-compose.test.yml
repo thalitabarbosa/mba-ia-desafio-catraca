@@ -1,0 +1,33 @@
+# Ambiente isolado dos gates: banco descartável e escala de atraso do gateway reduzida.
+name: catraca-gates
+
+services:
+  db-test:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: catraca
+      POSTGRES_PASSWORD: catraca
+      POSTGRES_DB: catraca_test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U catraca -d catraca_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  test:
+    build:
+      context: .
+      target: test
+    environment:
+      DATABASE_URL: postgres://catraca:catraca@db-test:5432/catraca_test
+      TZ: America/Sao_Paulo
+      SESSION_SECRET: test
+      PARTNER_API_KEY: catraca-parceiro-dev
+      GATEWAY_MODE: simulated
+      GATEWAY_DELAY_SCALE: "0.02"
+    depends_on:
+      db-test:
+        condition: service_healthy
+    command: ["npm", "test"]
