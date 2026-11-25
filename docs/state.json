@@ -29,10 +29,10 @@
     "F03": {
       "name": "Compra e gateway simulado",
       "wave": "W3",
-      "status": "in_review",
+      "status": "done",
       "branch": "feat/F03-purchase",
-      "pr": null,
-      "latestReport": null
+      "pr": "https://github.com/thalitabarbosa/mba-ia-desafio-catraca/pull/3",
+      "latestReport": "docs/features/F03-purchase/reports/2026-11-25-1258-eval.md"
     },
     "F04": {
       "name": "Vitrine e Meus ingressos",
@@ -97,6 +97,12 @@
       "feature": "F03",
       "status": "in_review",
       "note": "implementação concluída; gates ok; burst 5x ok"
+    },
+    {
+      "at": "2026-11-25 12:58",
+      "feature": "F03",
+      "status": "done",
+      "note": "avaliação: Veredito final: APROVADO"
     }
   ]
 }
